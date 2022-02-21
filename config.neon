@@ -1,0 +1,12 @@
+includes:
+	- parameters.neon
+services:
+	psr17: Nyholm\Psr7\Factory\Psr17Factory
+	logger: iggyvolz\ObsProject\Logger
+	http: Amp\Http\Server\HttpServer([@tcpServer])
+	requestHandler: iggyvolz\ObsProject\RequestHandler
+	obs: iggyvolz\obs\Obs(%obsConnection%, %obsPassword%)
+	app: iggyvolz\ObsProject\App
+	uuidFactory: Ramsey\Uuid\UuidFactory
+	requestGenerator: iggyvolz\ObsProject\UuidRequestIdGenerator
+	tcpServer: iggyvolz\ObsProject\SocketServer(uri: %httpServer%)
