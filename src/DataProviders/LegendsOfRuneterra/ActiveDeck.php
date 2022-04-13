@@ -1,0 +1,14 @@
+<?php
+
+namespace iggyvolz\ObsProject\DataProviders\LegendsOfRuneterra;
+
+final class ActiveDeck
+{
+    public function __construct(
+        public readonly ?string $DeskCode,
+        /** @var null|array<string,int> */
+        public readonly ?array $CardsInDeck,
+    )
+    {
+    }
+}
