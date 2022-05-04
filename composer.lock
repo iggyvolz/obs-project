@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fad529fa1824802d5acc5ad3f7af5b1a",
+    "content-hash": "3a928c67634ef3b269489f6215720b9f",
     "packages": [
         {
             "name": "amphp/amp",
-            "version": "v3.0.0-beta.5",
+            "version": "v3.0.0-beta.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/amp.git",
-                "reference": "dc327dd458a69ee0a86faa37f32db257988c0646"
+                "reference": "d8d0b8fabe62cc52749cd01242d1730a43c4802e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/amp/zipball/dc327dd458a69ee0a86faa37f32db257988c0646",
-                "reference": "dc327dd458a69ee0a86faa37f32db257988c0646",
+                "url": "https://api.github.com/repos/amphp/amp/zipball/d8d0b8fabe62cc52749cd01242d1730a43c4802e",
+                "reference": "d8d0b8fabe62cc52749cd01242d1730a43c4802e",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
             ],
             "support": {
                 "issues": "https://github.com/amphp/amp/issues",
-                "source": "https://github.com/amphp/amp/tree/v3.0.0-beta.5"
+                "source": "https://github.com/amphp/amp/tree/v3.0.0-beta.6"
             },
             "funding": [
                 {
@@ -92,7 +92,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-04-03T16:28:42+00:00"
+            "time": "2022-04-20T04:52:32+00:00"
         },
         {
             "name": "amphp/byte-stream",
@@ -462,16 +462,16 @@
         },
         {
             "name": "amphp/http-client",
-            "version": "v5.x-dev",
+            "version": "v5.0.0-beta.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/http-client.git",
-                "reference": "c77a05e6ac3e1eb523b1e49fbd047f9beffe67f9"
+                "reference": "b3203552c84dc950372ed421bdb3d8d8c931751f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/http-client/zipball/c77a05e6ac3e1eb523b1e49fbd047f9beffe67f9",
-                "reference": "c77a05e6ac3e1eb523b1e49fbd047f9beffe67f9",
+                "url": "https://api.github.com/repos/amphp/http-client/zipball/b3203552c84dc950372ed421bdb3d8d8c931751f",
+                "reference": "b3203552c84dc950372ed421bdb3d8d8c931751f",
                 "shasum": ""
             },
             "require": {
@@ -479,11 +479,13 @@
                 "amphp/byte-stream": "^2",
                 "amphp/hpack": "^3",
                 "amphp/http": "^1.6",
+                "amphp/pipeline": "^1",
                 "amphp/socket": "^2",
                 "amphp/sync": "^2",
                 "league/uri": "^6",
                 "php": ">=8.1",
-                "psr/http-message": "^1"
+                "psr/http-message": "^1",
+                "revolt/event-loop": "^0.2.4"
             },
             "require-dev": {
                 "amphp/file": "^3-dev",
@@ -545,7 +547,7 @@
             ],
             "support": {
                 "issues": "https://github.com/amphp/http-client/issues",
-                "source": "https://github.com/amphp/http-client/tree/v5"
+                "source": "https://github.com/amphp/http-client/tree/v5.0.0-beta.1"
             },
             "funding": [
                 {
@@ -553,15 +555,21 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-28T23:20:05+00:00"
+            "time": "2022-04-24T18:33:14+00:00"
         },
         {
             "name": "amphp/http-client-psr7",
             "version": "v2.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/iggyvolz/http-client-psr7.git",
-                "reference": "e3481448867a1ed291c502b3fca237bbb93acde9"
+                "url": "https://github.com/amphp/http-client-psr7.git",
+                "reference": "631f3d5dafa06a2ad45bbded9c57140a380d0d19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amphp/http-client-psr7/zipball/631f3d5dafa06a2ad45bbded9c57140a380d0d19",
+                "reference": "631f3d5dafa06a2ad45bbded9c57140a380d0d19",
+                "shasum": ""
             },
             "require": {
                 "amphp/amp": "^3",
@@ -587,11 +595,7 @@
                     "Amp\\Http\\Client\\Psr7\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Amp\\Http\\Client\\Psr7\\": "test"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -615,7 +619,17 @@
                 "http-client",
                 "psr7"
             ],
-            "time": "2022-02-08T23:38:45+00:00"
+            "support": {
+                "issues": "https://github.com/amphp/http-client-psr7/issues",
+                "source": "https://github.com/amphp/http-client-psr7/tree/v2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/amphp",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-04-12T07:10:10+00:00"
         },
         {
             "name": "amphp/parser",
@@ -1035,12 +1049,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/websocket.git",
-                "reference": "6700b84e21eda6f911fa707eaf29f71dd12bf9c3"
+                "reference": "f76d524cc591d4e99ea6033c672bfccb701a8235"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/websocket/zipball/6700b84e21eda6f911fa707eaf29f71dd12bf9c3",
-                "reference": "6700b84e21eda6f911fa707eaf29f71dd12bf9c3",
+                "url": "https://api.github.com/repos/amphp/websocket/zipball/f76d524cc591d4e99ea6033c672bfccb701a8235",
+                "reference": "f76d524cc591d4e99ea6033c672bfccb701a8235",
                 "shasum": ""
             },
             "require": {
@@ -1107,7 +1121,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-04-10T05:25:57+00:00"
+            "time": "2022-04-26T01:06:13+00:00"
         },
         {
             "name": "amphp/websocket-client",
@@ -2725,7 +2739,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "8.1.*"
+        "php": "8.1.*",
+        "ext-ffi": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"

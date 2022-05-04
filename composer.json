@@ -21,10 +21,7 @@
         "iggyvolz/obs": "dev-main",
         "ramsey/uuid": "^4.2",
         "amphp/http-client-psr7": "^2",
-        "nyholm/psr7": "^1.5"
-    },
-    "repositories": [{
-        "url": "https://github.com/iggyvolz/http-client-psr7.git",
-        "type": "git"
-    }]
+        "nyholm/psr7": "^1.5",
+        "ext-ffi": "*"
+    }
 }

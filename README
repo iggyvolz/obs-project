@@ -1,0 +1,26 @@
+Running the demo
+=================
+Open the following programs:
+- Legends of Runeterra (https://playruneterra.com)
+- OBS Studio (https://obsproject.com/) with OBS Websocket 5 (https://github.com/obsproject/obs-websocket - in beta at time of writing, will be preinstalled soon)
+
+Write the configuration for OBS Websocket in the following format:
+
+<?php
+const OBS_URL = "ws://127.0.0.1:4444";
+const OBS_PASSWORD = "(obs websocket password)";
+
+You can find this information in Tools > obs-websocket Settings
+
+Run the file run.php with PHP (see composer.json for required PHP version and extensions).
+
+In OBS, create a scene with two sources:
+- Scene source (_obs)
+- Game Capture (set to capture Legends of Runeterra executable)
+
+Text will be shown on the Scene source corresponding to the current game state.
+
+Also included in the repository, but not fully functional in the demo, are:
+- A data reader for Mario & Luigi: Bowser's Inside Story (suffers from crashes, requires running my fork of melonDS - https://github.com/iggyvolz/melonDS/tree/rpc)
+- An object-oriented interface for scenes (easier to demonstrate using procedural programming)
+- A Lua binding to PHP, and a Lua library for reading data from data readers and writing to OBS (suffers from unexplained Lua stack crashes)

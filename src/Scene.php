@@ -6,13 +6,39 @@ use Revolt\EventLoop;
 use function Amp\async;
 use function Amp\Future\awaitAll;
 
-abstract class Scene
+final class Scene
 {
-    public function __construct(
+    private function __construct(
         public readonly Obs $obs,
         public readonly string $name,
     )
     {
+    }
+
+    public static function newClear(Obs $obs, string $name): self
+    {
+        $self = self::create($obs, $name);
+        awaitAll(array_map(fn(array $sceneItem) => $obs->removeSceneItem($name, $sceneItem["sceneItemId"]), $obs->getSceneItemList($name)->await()->sceneItems));
+        return $self;
+    }
+
+    public static function create(Obs $obs, string $name): self
+    {
+        if(!self::sceneExists($obs, $name)) {
+            // Create scene _obs if not exists
+            $obs->createScene($name)->await();
+        }
+        return new self($obs, $name);
+    }
+
+    public static function get(Obs $obs, string $name): ?self
+    {
+        return self::sceneExists($obs, $name) ? new self($obs, $name) : null;
+    }
+
+    private static function sceneExists(Obs $obs, string $name): bool
+    {
+        return !empty(array_filter($obs->getSceneList()->await()->scenes, fn(array $scene): bool => $scene["sceneName"] === $name));
     }
 
     public final function run(): void
@@ -32,23 +58,10 @@ abstract class Scene
         foreach((new \ReflectionClass($this))->getProperties() as $property) {
             $value = $property->getValue($this);
             if($value instanceof Element) {
-                $value->add($this);
+                $value->add();
             }
         }
         $this->_run();
         EventLoop::run();
-    }
-
-    protected abstract function _run(): void;
-
-    protected function clear(): void
-    {
-        if(empty(array_filter($this->obs->getSceneList()->await()->scenes, fn(array $scene): bool => $scene["sceneName"] === $this->name))) {
-            // Create scene _obs if not exists
-            $this->obs->createScene("_obs")->await();
-        } else {
-            // Remove all items from _obs if it does exist
-            awaitAll(array_map(fn(array $sceneItem) => $this->obs->removeSceneItem("_obs", $sceneItem["sceneItemId"]), $this->obs->getSceneItemList($this->name)->await()->sceneItems));
-        }
     }
 }

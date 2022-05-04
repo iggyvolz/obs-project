@@ -10,10 +10,11 @@ class ColorElement extends Element
         public Color $color,
         public int $width,
         public int $height,
+        Scene $scene,
         SceneItemTransformUpdate $transform = new SceneItemTransformUpdate(),
     )
     {
-        parent::__construct($transform);
+        parent::__construct($transform, $scene);
     }
 
     public static function getInputKind(): string

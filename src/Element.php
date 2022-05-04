@@ -20,7 +20,10 @@ abstract class Element
     public function add(): void
     {
         $sceneItemId = $this->scene->obs->createInput($this->scene->name, $this->id, $this->getInputKind(), $this->getProperties())->await()->sceneItemId;
-        $this->scene->obs->setSceneItemTransform($this->scene->name, $sceneItemId, $this->transform)->await();
+        if(array_filter((array)$this->transform, fn($x) => !is_null($x))) {
+            // Only perform an update if there are any properties - otherwise it gets cranky
+            $this->scene->obs->setSceneItemTransform($this->scene->name, $sceneItemId, $this->transform)->await();
+        }
     }
     public function update(): void
     {

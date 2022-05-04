@@ -16,10 +16,10 @@ class MyScene extends Scene
     public function __construct(Obs $obs, private readonly MelonDsApi $melonDs)
     {
         parent::__construct($obs, "_obs");
-        $this->backgroundElement = new ColorElement(new Color(155, 103, 60, 255), 1920, 100, new SceneItemTransformUpdate(
+        $this->backgroundElement = new ColorElement(new Color(155, 103, 60, 255), 1920, 100, $this, new SceneItemTransformUpdate(
             positionY: 100
         ));
-        $this->textElement = new TextElement("", 1920, 100, new SceneItemTransformUpdate(
+        $this->textElement = new TextElement("", 1920, 100, $this, new SceneItemTransformUpdate(
             positionY: 100
         ));
     }
