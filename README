@@ -12,7 +12,7 @@ const OBS_PASSWORD = "(obs websocket password)";
 
 You can find this information in Tools > obs-websocket Settings
 
-Run the file run.php with PHP (see composer.json for required PHP version and extensions).
+Install the project with composer install and run the file run.php with PHP (see composer.json for required PHP version and extensions).
 
 In OBS, create a scene with two sources:
 - Scene source (_obs)
